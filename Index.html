@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' "> 
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="titulo">Calculadora Javascript</h1>
+        <h1 class="titulo">Kaylan</h1>
+        <div class="calculadora">
+        
+        <input type="text" id="resultado">
+        <table>
+            
+            <tr>
+                <td><button class="botao" onclick="clean()"><img src="icons8-apagar-para-sempre-24.png" alt=""></button></td>
+                <td><button class="botao" onclick="apagar()"><img src="icons8-limpar-símbolo-50.png" alt="" width="30px" height="35px"></button></td>
+                <td><button class="botao" onclick="InsertNumber('/')">/</button></td>
+                <td><button class="botao" onclick="InsertNumber('*')">X</button></td>
+            </tr>
+            <tr>
+                <td><button class="botao" onclick="InsertNumber('7')">7</button></td>
+                <td><button class="botao" onclick="InsertNumber('8')">8</button></td>
+                <td><button class="botao" onclick="InsertNumber('9')">9</button></td>
+                <td><button class="botao" onclick="InsertNumber('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button class="botao" onclick="InsertNumber('4')">4</button></td>
+                <td><button class="botao" onclick="InsertNumber('5')">5</button></td>
+                <td><button class="botao" onclick="InsertNumber('6')">6</button></td>
+                <td><button class="botao"onclick="InsertNumber('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button class="botao" onclick="InsertNumber('1')">1</button></td>
+                <td><button class="botao" onclick="InsertNumber('2')">2</button></td>
+                <td><button class="botao" onclick="InsertNumber('3')">3</button></td>
+                <td rowspan="2"><button class="botao" style="height: 106px;" onclick="calculate()">=</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"> <button class="botao" style="width: 106px;" onclick="InsertNumber('0')">0</button></td>
+                <td><button class="botao" onclick="InsertNumber('.')" >.</button></td>
+            </tr>
+        </div>
+        </div>
+        </table>
+    </main>
+    <script>
+        function InsertNumber(numero)
+        {
+           var number =  document.getElementById('resultado').innerHTML
+           document.getElementById('resultado').innerHTML = number + numero
+        }
+        function clean(){
+            document.getElementById('resultado').innerHTML = ""
+        }
+        function apagar() {
+            var voltar = document.getElementById ('resultado').innerHTML
+            document.getElementById('resultado').innerHTML = voltar.substring(0, voltar.length -1)
+        }
+        function calculate()
+        {
+            var resultado = document.getElementById ('resultado').innerHTML
+            if(resultado){
+                document.getElementById('resultado').innerHTML = eval(resultado)
+            }
+        }
+    </script>
+</body>
+</html>
